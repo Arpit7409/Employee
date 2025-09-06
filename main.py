@@ -7,7 +7,7 @@ from predict import calculate_brier_score, simulate_intervention
 from utils import load_and_preprocess
 
 st.image("pic.png", width=120)
-st.title("HCL HR Analytics Dashboard: Employee Retention Risk")
+st.title("HR Analytics Dashboard: Employee Retention Risk on IBM Dataset")
 
 # Load and preprocess data
 data_path = "data/WA_Fn-UseC_-HR-Employee-Attrition.csv"
@@ -81,3 +81,4 @@ if predict:
     surv_func = rsf_model.predict_survival_function(input_data, return_array=True)[0]
     survival_at_target = np.interp(target_year, rsf_model.unique_times_, surv_func)
     st.success(f"Estimated Retention Chance at {target_year} Years: {survival_at_target * 100:.2f}%")
+
